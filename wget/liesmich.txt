@@ -1,0 +1,4 @@
+WGET für Windows gibt es unter http://gnuwin32.sourceforge.net/packages/wget.htm
+Es steht unter GPL. 
+
+Ich habe hier nur die benötigten Dateien hinzugefügt, weil ich am Programm nichts verändert habe; wer den Quellcode haben möchte, möge ihn sich von o.g. Seite herunterladen.

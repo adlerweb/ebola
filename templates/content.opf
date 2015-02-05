@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="BookID" version="2.0">
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <dc:title>$TITLE</dc:title>
+        <dc:rights>Public Domain</dc:rights>
+        <dc:subject>$SUBJECT</dc:subject>
+        <dc:creator opf:role="aut">$AUTOR</dc:creator>
+        <dc:publisher>$PUBLISHER</dc:publisher>
+        <dc:language xsi:type="dcterms:RFC5646">de</dc:language>
+        <dc:identifier id="BookID" opf:scheme="UUID">$UUID</dc:identifier>
+    </metadata>
