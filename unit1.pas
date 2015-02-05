@@ -379,13 +379,16 @@ begin
                   Application.ProcessMessages;
 
                   if ((iCount = 1) and (bXML)) then begin
-                     sCmd := '"' + sWgetPath  + '" --user-agent="Mozilla/5.0 (X11; U; Linux i686; de; rv:1.9b5) Gecko/2008050509 Firefox/3.0b5" '  + sUrl  + ' -P "' +  sOutputDir + 'temp'+PathDelim+IntToStr(i) + '"';
+                     MakeDir(sOutputDir + 'temp');
+                     MakeDir(sOutputDir + 'temp'+PathDelim+IntToStr(i));
+                     sCmd := '"' + sWgetPath  + '" --user-agent="Mozilla/5.0 (X11; U; Linux i686; de; rv:1.9b5) Gecko/2008050509 Firefox/3.0b5" '  + sUrl  + ' -O "' +  sOutputDir + 'temp'+PathDelim+IntToStr(i) + PathDelim + '1"';
                   end else begin       //verwende nun korrekte Adresse
                      sCmd := '"' + sWgetPath  + '" --user-agent="Mozilla/5.0 (X11; U; Linux i686; de; rv:1.9b5) Gecko/2008050509 Firefox/3.0b5" '  + sUrl + IntToStr(iCount) + ' -P "' +  sOutputDir + 'temp'+PathDelim+IntToStr(i) + '"';
                      sPics := '"' + sWgetPath + '" -nd -p --user-agent="Mozilla/5.0 (X11; U; Linux i686; de; rv:1.9b5) Gecko/2008050509 Firefox/3.0b5" -A jpg,jpeg,gif,png '  + sUrl + IntToStr(iCount) + ' -P ' + '"' + sOutputDir + 'temp'+PathDelim+IntToStr(i)+PathDelim+'images"';
                   end;
                   log.Add(DateTimeToStr(now));
                   log.Add(sCmd);
+                  stbStatus.Panels[0].Text:='Debug: '+sCmd;
                   Download(sCmd);
                   Application.ProcessMessages;
                   if ((FileExists(sOutputDir + 'temp'+PathDelim+IntToStr(i)+PathDelim+IntToStr(iCount)))) then begin
@@ -930,7 +933,7 @@ begin
      cmbAutor.Items.LoadFromFile(ExtractFilePath(Application.ExeName)+'autoren');
      sCextraPath := ExtractFilePath(Application.ExeName)+PathDelim+'cextra';
      sOutputDir := ExtractFilePath(Application.ExeName) + 'output'+PathDelim;
-     sWgetPath := 'wget';
+     sWgetPath := '/usr/bin/wget';
      {$IfDef Win32}
      sWgetPath := ExtractFilePath(Application.ExeName) + 'wget'+PathDelim + 'wget.exe';
      {$EndIf}
@@ -1416,4 +1419,4 @@ initialization
   {$I unit1.lrs}
 //-------------------------------------------------------------------------------------------
 end.
-
+
