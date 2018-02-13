@@ -934,7 +934,7 @@ begin
      sCextraPath := ExtractFilePath(Application.ExeName)+PathDelim+'cextra';
      sOutputDir := ExtractFilePath(Application.ExeName) + 'output'+PathDelim;
      sWgetPath := '/usr/bin/wget';
-     {$IfDef Win32}
+     {$IfDef WINDOWS}
      sWgetPath := ExtractFilePath(Application.ExeName) + 'wget'+PathDelim + 'wget.exe';
      {$EndIf}
      fIni := TIniFile.Create(ExtractFilePath(Application.ExeName) + 'config.ini');
