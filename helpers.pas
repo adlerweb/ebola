@@ -202,7 +202,7 @@ begin
   s:=AnsiReplaceAll(s,'../','http://gutenberg.spiegel.de/');
   s:=AnsiReplaceAll(s,#220+':','');
   s:=AnsiReplaceAll(s,'&#8211;','-');
-  {$IfDef Win32}
+  {$IfDef WINDOWS}
   s:=AnsiReplaceAll(s,#223,'ss');     //ß
   {$EndIf}
   s:=AnsiReplaceAll(s,#187,'');      //»

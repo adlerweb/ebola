@@ -511,7 +511,7 @@ begin
    {$IfDef Unix}
    AProcess.CommandLine := 'zip -r -u "' +  sRes + '" . -i *.*';
    {$EndIf}
-   {$IfDef Win32}
+   {$IfDef WINDOWS}
    AProcess.CommandLine := '"' + sZip + '" -r -u ' + '"' + sRes + '" . -i *.*';
    {$EndIf}
    AProcess.Options := AProcess.Options + [poWaitOnExit,poNoConsole];
